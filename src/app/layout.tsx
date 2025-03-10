@@ -1,5 +1,8 @@
 import "./globals.css";
 import { Providers } from "./provider";
+import { Urbanist } from "next/font/google";
+
+const urbanist = Urbanist({ subsets: ["latin"] });
 
 export const metadata = {
   title: 'Next.js',
@@ -13,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <body className={urbanist.className}>
         <Providers>
          {children}
         </Providers>
