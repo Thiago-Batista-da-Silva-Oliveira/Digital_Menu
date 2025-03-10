@@ -20,7 +20,7 @@ export default function LoginPage() {
         email: 'teste@teste.com',
         id: '1',
         name: 'Teste',
-        role: 'RESTAURANT_ADMIN',
+        role: 'MASTER_ADMIN',
       }, 'token')
     } catch (error) {
       setError("Ocorreu um erro. Tente novamente.");

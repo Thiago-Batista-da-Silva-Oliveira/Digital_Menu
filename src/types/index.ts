@@ -1,5 +1,7 @@
 // src/types/index.ts
 
+import { StaticImageData } from "next/image";
+
 export type Role = 'MASTER_ADMIN' | 'RESTAURANT_ADMIN' | 'CLIENT';
 
 export interface User {
@@ -12,7 +14,7 @@ export interface User {
 export interface Restaurant {
   id: string;
   name: string;
-  logo: string;
+  logo: string | StaticImageData;
   description: string;
   address: string;
   phone: string;
@@ -48,7 +50,7 @@ export interface Dish {
   price: number;
   discountedPrice?: number;
   discountPercentage?: number;
-  image: string;
+  image: string | StaticImageData;
   category: DishCategory;
   isHighlighted: boolean;
   isAvailable: boolean;

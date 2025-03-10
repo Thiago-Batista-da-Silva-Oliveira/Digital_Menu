@@ -1,22 +1,25 @@
 import Link from "next/link";
+import Image from "next/image";
+import RestaurantDashboard from '@/assets/restaurant_dashboard.png'
+import MenuListExample from '@/assets/menu_list_example.png'
 
 export default function LandingPage() {
-    return (
-      <div className="min-h-screen bg-white">
+  return (
+    <div className="min-h-screen bg-white">
       {/* Navbar */}
-      <nav className="bg-white shadow-sm">
-        <div className="container mx-auto px-6 py-3 flex justify-between items-center">
+      <nav className="bg-white shadow-sm fixed w-full top-0 z-10">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <div className="text-xl font-bold">Digital Menu</div>
           <div className="space-x-4">
             <Link 
               href="/login"
-              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+              className="px-4 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition duration-300"
             >
               Login
             </Link>
             <Link 
               href="/register" 
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300"
             >
               Registrar
             </Link>
@@ -25,21 +28,65 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto px-6 py-16 text-center">
-          <h1 className="text-4xl font-bold mb-4">Menu Digital para seu Restaurante</h1>
-          <p className="text-xl mb-8">
-            Gerencie seus pedidos, cardápios e clientes em uma única plataforma.
-          </p>
+      <header className="bg-gradient-to-r from-blue-600 to-blue-800 text-white pt-24 pb-16">
+        <div className="container mx-auto px-6 flex flex-col lg:flex-row items-center">
+          <div className="lg:w-1/2 mb-10 lg:mb-0">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+              Simplifique Seu<br />
+              <span className="text-blue-300">Menu Digital</span><br />
+            </h1>
+            <p className="text-xl mb-8 max-w-lg">
+              Plataforma completa para gerenciar seu cardápio, controlar pedidos e impulsionar seu negócio.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link 
+                href="/register" 
+                className="bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 text-center"
+              >
+                Comece Grátis
+              </Link>
+              <Link 
+                href="#features" 
+                className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition duration-300 text-center"
+              >
+                Saiba Mais
+              </Link>
+            </div>
+            <p className="mt-4 text-sm text-blue-100">
+              Sem cartão de crédito • 14 dias de teste grátis • Cancele a qualquer momento
+            </p>
+          </div>
+          <div className="lg:w-1/2 relative">
+            <div className="w-full">
+              <Image 
+                src={RestaurantDashboard}
+                alt="Dashboard Preview" 
+                width={700} 
+                height={500}
+                className="rounded-lg shadow-xl"
+                priority
+              />
+              <div className="absolute -bottom-1 -right-6 w-48 h-48">
+                <Image 
+                  src={MenuListExample}
+                  alt="Mobile App" 
+                  width={192} 
+                  height={192}
+                  className="rounded-lg shadow-xl"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </header>
-            {/* Features Section */}
-            <section id="features" className="py-16">
+
+      {/* Features Section */}
+      <section id="features" className="py-20">
         <div className="container mx-auto px-6">
           <h2 className="text-3xl font-bold text-center mb-12">Recursos Principais</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-white p-6 rounded-lg shadow-md transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100">
               <div className="bg-blue-100 text-blue-600 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
@@ -47,11 +94,11 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Cardápio Digital</h3>
               <p className="text-gray-600">
-                Crie e personalize seu cardápio digital com fotos, descrições e preços atualizados.
+                Crie e personalize seu cardápio digital com fotos, descrições e preços atualizados em tempo real.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-white p-6 rounded-lg shadow-md transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100">
               <div className="bg-green-100 text-green-600 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -59,11 +106,11 @@ export default function LandingPage() {
               </div>
               <h3 className="text-xl font-semibold mb-2">Gestão de Mesas</h3>
               <p className="text-gray-600">
-                Controle as mesas do seu restaurante, acompanhe os pedidos e otimize o atendimento.
+                Controle as mesas do seu restaurante, acompanhe os pedidos e otimize o atendimento aos clientes.
               </p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-white p-6 rounded-lg shadow-md transition-transform duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100">
               <div className="bg-purple-100 text-purple-600 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -78,143 +125,141 @@ export default function LandingPage() {
         </div>
       </section>
 
-         {/* Pricing Section */}
-         <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-center mb-12">Planos e Preços</h2>
+      {/* Pricing Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-12">Planos e Preços</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
+              <h3 className="text-xl font-semibold mb-4">Básico</h3>
+              <div className="text-3xl font-bold mb-6">R$ 89<span className="text-lg text-gray-500">/mês</span></div>
+              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Cardápio Digital</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Até 50 Itens no Menu</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Gestão de Pedidos</span>
+                </li>
+                <li className="flex items-center text-gray-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                  <span>Estatísticas Avançadas</span>
+                </li>
+              </ul>
+              
+              <Link 
+                href="/register" 
+                className="block text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+              >
+                Assinar Plano
+              </Link>
+            </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-xl font-semibold mb-4">Básico</h3>
-                <div className="text-3xl font-bold mb-6">R$ 89<span className="text-lg text-gray-500">/mês</span></div>
-                
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Cardápio Digital</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Até 50 Itens no Menu</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Gestão de Pedidos</span>
-                  </li>
-                  <li className="flex items-center text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                    <span>Estatísticas Avançadas</span>
-                  </li>
-                </ul>
-                
-                <a 
-                  href="/register" 
-                  className="block text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
-                >
-                  Assinar Plano
-                </a>
+            <div className="bg-white p-8 rounded-lg shadow-lg border-2 border-blue-500 relative transform transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
+              <div className="absolute -top-4 left-0 right-0 flex justify-center">
+                <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">POPULAR</span>
               </div>
+              <h3 className="text-xl font-semibold mb-4">Pro</h3>
+              <div className="text-3xl font-bold mb-6">R$ 189<span className="text-lg text-gray-500">/mês</span></div>
               
-              <div className="bg-white p-8 rounded-lg shadow-lg border-2 border-blue-500 transform scale-105">
-                <div className="absolute -top-4 left-0 right-0 flex justify-center">
-                  <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold">POPULAR</span>
-                </div>
-                <h3 className="text-xl font-semibold mb-4">Pro</h3>
-                <div className="text-3xl font-bold mb-6">R$ 189<span className="text-lg text-gray-500">/mês</span></div>
-                
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Cardápio Digital</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Itens Ilimitados</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Gestão de Pedidos</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Estatísticas Avançadas</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Gestão de Mesas</span>
-                  </li>
-                </ul>
-                
-                <a 
-                  href="/register" 
-                  className="block text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
-                >
-                  Assinar Plano
-                </a>
-              </div>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Cardápio Digital</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Itens Ilimitados</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Gestão de Pedidos</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Estatísticas Avançadas</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Gestão de Mesas</span>
+                </li>
+              </ul>
               
-              <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200">
-                <h3 className="text-xl font-semibold mb-4">Enterprise</h3>
-                <div className="text-3xl font-bold mb-6">R$ 349<span className="text-lg text-gray-500">/mês</span></div>
-                
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Tudo do Plano Pro</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Múltiplas Unidades</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>API Personalizada</span>
-                  </li>
-                  <li className="flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                    <span>Suporte Prioritário</span>
-                  </li>
-                </ul>
-                
-                <a 
-                  href="/register" 
-                  className="block text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
-                >
-                  Assinar Plano
-                </a>
-              </div>
+              <Link 
+                href="/register" 
+                className="block text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+              >
+                Assinar Plano
+              </Link>
+            </div>
+            
+            <div className="bg-white p-8 rounded-lg shadow-md border border-gray-200 transition-transform duration-300 hover:shadow-xl hover:-translate-y-2">
+              <h3 className="text-xl font-semibold mb-4">Enterprise</h3>
+              <div className="text-3xl font-bold mb-6">R$ 349<span className="text-lg text-gray-500">/mês</span></div>
+              
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Tudo do Plano Pro</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Múltiplas Unidades</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>API Personalizada</span>
+                </li>
+                <li className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                  <span>Suporte Prioritário</span>
+                </li>
+              </ul>
+              
+              <Link 
+                href="/register" 
+                className="block text-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
+              >
+                Assinar Plano
+              </Link>
             </div>
           </div>
-        </section>
-  
-        {/* Footer */}
-        <footer className="bg-gray-800 text-white py-12">
+        </div>
+      </section>
+      <footer className="bg-gray-800 text-white py-12">
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
               <div>
@@ -270,6 +315,6 @@ export default function LandingPage() {
             </div>
           </div>
         </footer>
-      </div>
-    );
-  }
+        </div>
+        )
+    }

@@ -1,6 +1,10 @@
 // src/lib/mock-data/restaurantData.ts
 
 import { Dish, Order, OrderItem, Restaurant, TableStatus, User } from "@/types";
+import FriesExample from '@/assets/fries_example.png';
+import CheeseExample from '@/assets/cheese_example.png';
+import Onion_Example from '@/assets/onion_rings_example.png';
+import RestaurantLogo_example from '@/assets/logo_example.png';
 
 // Mock Dishes
 export const mockDishes: Dish[] = [
@@ -12,7 +16,7 @@ export const mockDishes: Dish[] = [
     price: 40.00,
     discountedPrice: 32.00,
     discountPercentage: 20,
-    image: '/images/dish-batata.jpg',
+    image: FriesExample,
     category: 'SIDE',
     isHighlighted: true,
     isAvailable: true,
@@ -59,7 +63,7 @@ export const mockDishes: Dish[] = [
     name: 'Queijo gouda empanado',
     description: 'Para um paladar refinado a combinação perfeita entre gouda e geleia de pimentas.',
     price: 30.00,
-    image: '/images/dish-queijo.jpg',
+    image: CheeseExample,
     category: 'ENTREE',
     isHighlighted: false,
     isAvailable: true,
@@ -74,7 +78,7 @@ export const mockDishes: Dish[] = [
     name: 'Onion rings',
     description: 'Tradicional nas melhores hamburgerias! Estes deliciosos anéis de cebola empanada acompanhada da clássica maionese barbecue, esse dupla combina.',
     price: 30.00,
-    image: '/images/dish-onion.jpg',
+    image: Onion_Example,
     category: 'ENTREE',
     isHighlighted: false,
     isAvailable: true,
@@ -127,7 +131,7 @@ export const mockRestaurants: Restaurant[] = [
   {
     id: 'restaurant-1',
     name: 'To no X Hamburgeria',
-    logo: '/images/restaurant-1-logo.png',
+    logo: RestaurantLogo_example,
     description: 'Hamburgers and more',
     address: 'Rua das Flores, 123',
     phone: '+55 11 98765-4321',
